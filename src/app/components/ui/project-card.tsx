@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion";
 import Image from "next/image";
 import { Link2 } from "lucide-react";
 

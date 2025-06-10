@@ -4,8 +4,6 @@ import { motion } from "motion/react";
 import { ArrowDown, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSectionInView } from "@/hooks/use-section-in-view";
-import { ParallaxImage } from "../ui/parallexed-image";
-import { WaveBackground } from "../ui/cable";
 
 export function Hero() {
   const { ref } = useSectionInView("home", 0.5);
