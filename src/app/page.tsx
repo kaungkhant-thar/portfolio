@@ -4,7 +4,8 @@ import { Experiences } from "./components/sections/experiences";
 import { Hero } from "./components/sections/hero";
 import { Projects } from "./components/sections/projects";
 import { Services } from "./components/sections/services";
-import { Testimonials } from "./components/sections/testimonials";
+
+import BgBlur from "./components/ui/bg-blur";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Services />
       {/* <Testimonials /> */}
       <Contact />
+      {/* <BgBlur /> */}
     </main>
   );
 }

@@ -5,7 +5,7 @@ import { useSectionInView } from "@/hooks/use-section-in-view";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
-import { AnimatedUnderline } from "../ui/animate-underline";
+// import { AnimatedUnderline } from "../ui/animate-underline";
 
 export function About() {
   const { ref } = useSectionInView("about", 0.75);
@@ -20,7 +20,7 @@ export function About() {
           viewport={{ once: true }}
         >
           About Me
-          <AnimatedUnderline />
+          {/* <AnimatedUnderline /> */}
         </motion.h2>
 
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-start lg:justify-center">
@@ -44,20 +44,35 @@ export function About() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <p className="text-lg leading-relaxed">
+            <motion.p
+              className="text-lg leading-relaxed"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
               I’m a full-stack developer with a strong focus on building
               real-time, AI-powered applications using modern technologies like
               Next.js, Nest.js, and TypeScript. With a solid DevOps foundation
               in Docker, Terraform, and AWS, I bridge the gap between
               development and deployment.
-            </p>
-            <p className="text-lg leading-relaxed">
+            </motion.p>
+            <motion.p
+              className="text-lg leading-relaxed"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
               I'm passionate about crafting seamless user experiences, designing
               scalable architectures, and staying hands-on with the latest in AI
               and cloud. Whether it's a live chat app, scheduling platform — I
               love turning ideas into polished products.
-            </p>
-            <div className="flex flex-wrap gap-4">
+            </motion.p>
+            <motion.div
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+            >
               {[
                 "React",
                 "Next.js",
@@ -77,7 +92,7 @@ export function About() {
                   {skill}
                 </span>
               ))}
-            </div>
+            </motion.div>
             <Button className="mt-6 gap-2" asChild>
               <a href="/Kaung-Khant-Resume.pdf" download>
                 <Download className="h-4 w-4" />

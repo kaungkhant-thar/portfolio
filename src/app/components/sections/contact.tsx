@@ -46,7 +46,7 @@ export function Contact() {
               Feel free to reach out to me for any questions or opportunities.
             </p>
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
+              <div className="flex items-end gap-4">
                 <div className="mt-1 rounded-full bg-primary/10 p-2">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
@@ -70,7 +70,7 @@ export function Contact() {
                     href="tel:++652500496"
                     className="text-foreground/70 hover:text-primary hover:underline"
                   >
-                    +65 2500496
+                    +65 0652500496
                   </a>
                 </div>
               </div>

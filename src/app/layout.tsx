@@ -25,7 +25,9 @@ export default async function RootLayout({
 
   return (
     <html suppressHydrationWarning>
-      <body className={`${inter.className} bg-background text-foreground`}>
+      <body
+        className={`${inter.className} bg-background text-foreground scroll-smooth`}
+      >
         {/* <NextIntlClientProvider locale={locale} messages={messages}> */}
         <ActiveSectionContextProvider>{children}</ActiveSectionContextProvider>
         {/* </NextIntlClientProvider> */}
