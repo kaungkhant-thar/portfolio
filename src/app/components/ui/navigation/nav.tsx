@@ -139,14 +139,13 @@ export const Navigation = () => {
             role="menu"
           >
             {sections.map((section) => (
-              <li key={section.id} role="none" className="w-full text-center">
-                <NavItem
-                  href={`#${section.id}`}
-                  title={section.title}
-                  isActive={activeSection === section.id}
-                  onClick={handleNavClick}
-                />
-              </li>
+              <NavItem
+                key={section.id}
+                href={`#${section.id}`}
+                title={section.title}
+                isActive={activeSection === section.id}
+                onClick={handleNavClick}
+              />
             ))}
           </motion.ul>
         )}

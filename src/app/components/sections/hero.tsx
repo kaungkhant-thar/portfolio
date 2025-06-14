@@ -32,7 +32,7 @@ export function Hero() {
       id="hero"
       className="relative h-screen w-full overflow-hidden"
     >
-      <div ref={containerRef} className="relative h-screen w-full">
+      <div ref={containerRef} className="relative h-dvh w-full">
         <div className="container mx-auto flex h-full flex-col items-center justify-center px-4">
           <motion.div style={{ y: yHeading }} className="text-center max-w-3xl">
             <h1 className="text-3xl  font-bold sm:text-6xl md:text-7xl lg:text-8xl">
