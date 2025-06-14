@@ -35,7 +35,7 @@ export function Hero() {
       <div ref={containerRef} className="relative h-screen w-full">
         <div className="container mx-auto flex h-full flex-col items-center justify-center px-4">
           <motion.div style={{ y: yHeading }} className="text-center max-w-3xl">
-            <h1 className="text-5xl font-bold sm:text-6xl md:text-7xl lg:text-8xl">
+            <h1 className="text-3xl  font-bold sm:text-6xl md:text-7xl lg:text-8xl">
               {[...heading].map((char, index) => (
                 <motion.span
                   key={index}
@@ -54,7 +54,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="mt-4 text-2xl sm:text-3xl md:text-4xl"
+              className="mt-4 text-xl sm:text-3xl md:text-4xl"
             >
               Full Stack Developer & Cloud Enthusiast
             </motion.h2>

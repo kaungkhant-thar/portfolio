@@ -45,9 +45,8 @@ export function Experiences() {
       ref={ref}
       id="experiences"
       className="relative py-16 bg-background"
-      style={{ minHeight: `${experiences.length * 40}vh` }} // Reduced height
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 ">
         <motion.h2
           className="mb-12 text-center text-3xl font-bold sm:text-4xl"
           initial={{ opacity: 0, y: 50 }}

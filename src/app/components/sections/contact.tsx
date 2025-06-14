@@ -22,7 +22,7 @@ export function Contact() {
 
   return (
     <section ref={ref} id="contact" className="scroll-mt-28 bg-muted/50">
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-5 lg:py-20">
         <motion.h2
           className="mb-16 text-center text-3xl font-bold sm:text-4xl"
           initial={{ opacity: 0, y: 100 }}

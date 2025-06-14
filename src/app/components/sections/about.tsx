@@ -13,7 +13,7 @@ export function About() {
 
   return (
     <section ref={ref} id="about" className="scroll-mt-28">
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-5 lg:py-20">
         <motion.h2
           className="mb-12 text-center text-3xl font-bold sm:text-4xl"
           initial={{ opacity: 0, y: 100 }}
@@ -38,7 +38,7 @@ export function About() {
           </motion.div>
 
           <motion.div
-            className="max-w-2xl space-y-6"
+            className="max-w-2xl space-y-2 lg:space-y-6"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -68,7 +68,7 @@ export function About() {
               love turning ideas into polished products.
             </motion.p>
             <motion.div
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-1 lg:gap-4"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
