@@ -4,7 +4,8 @@ import { motion } from "motion/react";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { FaDownload } from "react-icons/fa";
+
 // import { AnimatedUnderline } from "../ui/animate-underline";
 
 export function About() {
@@ -20,7 +21,6 @@ export function About() {
           viewport={{ once: true }}
         >
           About Me
-          {/* <AnimatedUnderline /> */}
         </motion.h2>
 
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-start lg:justify-center">
@@ -32,7 +32,7 @@ export function About() {
             className="flex-shrink-0"
           >
             <Avatar className="h-48 w-48 sm:h-64 sm:w-64">
-              <AvatarImage src="/avatar.jpg" />
+              <AvatarImage src="https://ik.imagekit.io/wxk4trjev/assets/profile.jpg" />
               <AvatarFallback>KK</AvatarFallback>
             </Avatar>
           </motion.div>
@@ -95,7 +95,7 @@ export function About() {
             </motion.div>
             <Button className="mt-6 gap-2" asChild>
               <a href="/Kaung-Khant-Resume.pdf" download>
-                <Download className="h-4 w-4" />
+                <FaDownload className="h-4 w-4" />
                 Download CV
               </a>
             </Button>

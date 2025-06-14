@@ -5,9 +5,9 @@ export const projectsData = [
     description:
       "A modern real-time chat application built with Nest.js, Next.js, tRPC, and WebSockets. Includes support for WebRTC, rich media sharing via S3, authentication, and Redis-based Pub/Sub for scalable analytics and admin features.",
     tags: ["Nest.js", "Next.js", "tRPC", "WebSockets", "WebRTC", "PostgreSQL"],
-    imageUrl: "/images/chat-app.png", // replace with your actual image path
-    githubUrl: "https://github.com/yourusername/chat-app", // replace with your GitHub repo
-    liveUrl: "https://chat-app.yourdomain.com", // replace with your deployed URL
+    imageUrl: "https://ik.imagekit.io/wxk4trjev/assets/chat-app.png", // replace with your actual image path
+    githubUrl: "https://github.com/kaungkhant-thar/chat-app", // replace with your GitHub repo
+    liveUrl: "https://chat.kaungkhantthar.dev/", // replace with your deployed URL
   },
   {
     id: "2",
@@ -24,9 +24,9 @@ export const projectsData = [
       "PDF.js",
       "Vercel",
     ],
-    imageUrl: "/images/chat-pdf.png", // replace with your actual image path
-    githubUrl: "https://github.com/yourusername/chat-pdf", // replace with your GitHub repo
-    liveUrl: "https://chatpdf.yourdomain.com", // replace with your deployed URL
+    imageUrl: "https://ik.imagekit.io/wxk4trjev/assets/chat-pdf.png", // replace with your actual image path
+    githubUrl: "https://github.com/kaungkhant-thar/chat-pdf", // replace with your GitHub repo
+    liveUrl: "https://chat-pdf.kaungkhantthar.dev/", // replace with your deployed URL
   },
   {
     id: "3",
@@ -41,7 +41,7 @@ export const projectsData = [
       "SaaS",
       "UI/UX",
     ],
-    imageUrl: "/images/power-barre.png", // replace with an image/screenshot from the site
+    imageUrl: "https://ik.imagekit.io/wxk4trjev/assets/powerbarre.png", // replace with an image/screenshot from the site
     githubUrl: "", // leave empty if private or not applicable
     liveUrl: "https://powerbarreyoga.rezerv.co/",
   },

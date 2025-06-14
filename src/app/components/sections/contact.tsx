@@ -3,8 +3,9 @@
 import { motion } from "motion/react";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Phone } from "lucide-react";
+
 import { useForm } from "react-hook-form";
+import { BiMailSend, BiMapPin, BiPhone } from "react-icons/bi";
 
 export function Contact() {
   const { ref } = useSectionInView("contact", 0.5);
@@ -48,7 +49,7 @@ export function Contact() {
             <div className="space-y-6">
               <div className="flex items-end gap-4">
                 <div className="mt-1 rounded-full bg-primary/10 p-2">
-                  <Mail className="h-5 w-5 text-primary" />
+                  <BiMailSend className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-medium text-foreground/80">Email</h4>
@@ -62,7 +63,7 @@ export function Contact() {
               </div>
               <div className="flex items-start gap-4">
                 <div className="mt-1 rounded-full bg-primary/10 p-2">
-                  <Phone className="h-5 w-5 text-primary" />
+                  <BiPhone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-medium text-foreground/80">Phone</h4>
@@ -76,7 +77,7 @@ export function Contact() {
               </div>
               <div className="flex items-start gap-4">
                 <div className="mt-1 rounded-full bg-primary/10 p-2">
-                  <MapPin className="h-5 w-5 text-primary" />
+                  <BiMapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-medium text-foreground/80">Location</h4>

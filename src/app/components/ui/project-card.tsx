@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { Link2 } from "lucide-react";
 
 import { Project } from "@/lib/types";
 import { Button } from "./button";
-import { GithubIcon } from "@/icons";
+import { BsGithub } from "react-icons/bs";
+import { FiExternalLink } from "react-icons/fi";
 
 export function ProjectCard({
   title,
@@ -35,14 +35,14 @@ export function ProjectCard({
                 className="rounded-full"
               >
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                  <GithubIcon />
+                  <BsGithub />
                 </a>
               </Button>
             )}
             {liveUrl && (
               <Button size="sm" asChild className="rounded-full">
                 <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-                  <Link2 className="h-4 w-4" />
+                  <FiExternalLink className="h-4 w-4" />
                 </a>
               </Button>
             )}

@@ -2,29 +2,29 @@
 
 import { motion } from "motion/react";
 import { useSectionInView } from "@/hooks/use-section-in-view";
-import { Code, Cpu, LayoutTemplate, Smartphone } from "lucide-react";
+import { MdWeb, MdApps, MdApi, MdComputer } from "react-icons/md";
 
 const services = [
   {
-    icon: <LayoutTemplate className="h-8 w-8" />,
+    icon: <MdWeb className="h-8 w-8" />,
     title: "Web Development",
     description:
       "Custom websites with modern frameworks like Next.js and optimized for performance and SEO.",
   },
   {
-    icon: <Smartphone className="h-8 w-8" />,
+    icon: <MdApps className="h-8 w-8" />,
     title: "Mobile Apps",
     description:
       "Cross-platform mobile applications using React Native with native-like performance.",
   },
   {
-    icon: <Code className="h-8 w-8" />,
+    icon: <MdApi className="h-8 w-8" />,
     title: "API Development",
     description:
       "Robust backend services and REST/GraphQL APIs built with Node.js and TypeScript.",
   },
   {
-    icon: <Cpu className="h-8 w-8" />,
+    icon: <MdComputer className="h-8 w-8" />,
     title: "Performance Optimization",
     description:
       "Audit and improve your application speed, reducing load times by up to 70%.",

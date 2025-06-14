@@ -5,18 +5,21 @@ import { useSectionInView } from "@/hooks/use-section-in-view";
 import { ProjectCard } from "@/components/ui/project-card";
 import { projectsData } from "@/lib/data";
 
-const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
-  animate: (index: number) => ({
-    opacity: 1,
-    y: 0,
+// Container animation with stagger
+const containerVariants = {
+  hidden: {},
+  show: {
     transition: {
-      delay: 0.05 * index,
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
     },
-  }),
+  },
+};
+
+// Child animation
+const itemVariants = {
+  hidden: { opacity: 0, y: 100 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 export function Projects() {
@@ -33,22 +36,21 @@ export function Projects() {
         >
           My Projects
         </motion.h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projectsData.map((project, index) => (
-            <motion.div
-              key={project.id}
-              variants={fadeInAnimationVariants}
-              initial="initial"
-              whileInView="animate"
-              viewport={{
-                once: true,
-              }}
-              custom={index}
-            >
+
+        {/* Apply stagger to the grid */}
+        <motion.div
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {projectsData.map((project) => (
+            <motion.div key={project.id} variants={itemVariants}>
               <ProjectCard {...project} />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

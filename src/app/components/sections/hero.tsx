@@ -2,10 +2,12 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, Mail } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import BgBlur from "../ui/bg-blur";
+import { BsArrowDown, BsGithub, BsLinkedin } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
 
 export function Hero() {
   const { ref: sectionRef } = useSectionInView("home", 0.5);
@@ -27,7 +29,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      id="home"
+      id="hero"
       className="relative h-screen w-full overflow-hidden"
     >
       <div ref={containerRef} className="relative h-screen w-full">
@@ -87,7 +89,7 @@ export function Hero() {
             transition={{ delay: 1.2 }}
             className="absolute bottom-12 left-1/2 -translate-x-1/2"
           >
-            <ArrowDown className="h-8 w-8 animate-bounce" />
+            <BsArrowDown className="h-8 w-8 animate-bounce" />
           </motion.div>
 
           {/* Social icons */}
@@ -95,23 +97,28 @@ export function Hero() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.3 }}
-            className="fixed left-8 top-1/2 hidden -translate-y-1/2 flex-col gap-4 md:flex"
+            className="fixed left-8 z-20 top-1/2 hidden -translate-y-1/2 flex-col gap-4 md:flex"
           >
-            {[{ icon: Mail, url: "mailto:kaungkhantthar77@gmail.com" }].map(
-              (item, index) => (
-                <motion.a
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  key={index}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  <item.icon className="h-6 w-6" />
-                </motion.a>
-              )
-            )}
+            {[
+              { icon: MdEmail, url: "mailto:kaungkhantthar77@gmail.com" },
+              { icon: BsGithub, url: "https://github.com/kaungkhant-thar" },
+              {
+                icon: BsLinkedin,
+                url: "https://www.linkedin.com/in/kaung-khant-thar-b978ab1a1/",
+              },
+            ].map((item, index) => (
+              <motion.a
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                key={index}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground  transition-colors hover:text-foreground"
+              >
+                <item.icon className="h-6 w-6" />
+              </motion.a>
+            ))}
           </motion.div>
         </div>
       </div>

@@ -5,8 +5,6 @@ import { Hero } from "./components/sections/hero";
 import { Projects } from "./components/sections/projects";
 import { Services } from "./components/sections/services";
 
-import BgBlur from "./components/ui/bg-blur";
-
 export default function Home() {
   return (
     <main>
@@ -15,9 +13,8 @@ export default function Home() {
       <Experiences />
       <Projects />
       <Services />
-      {/* <Testimonials /> */}
+
       <Contact />
-      {/* <BgBlur /> */}
     </main>
   );
 }

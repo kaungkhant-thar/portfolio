@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 // import { NextIntlClientProvider } from "next-intl";
 import ActiveSectionContextProvider from "@/context/action-section-context";
+import { Navigation } from "./components/ui/navigation/nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,12 +25,20 @@ export default async function RootLayout({
   // }
 
   return (
-    <html suppressHydrationWarning>
-      <body
-        className={`${inter.className} bg-background text-foreground scroll-smooth`}
-      >
+    <html suppressHydrationWarning className="scroll-smooth">
+      <head>
+        <link
+          rel="icon"
+          href="https://ik.imagekit.io/wxk4trjev/assets/profile.jpg?tr=w-32,h-32"
+          type="image/jpeg"
+        />
+      </head>
+      <body className={`${inter.className} bg-background text-foreground `}>
         {/* <NextIntlClientProvider locale={locale} messages={messages}> */}
-        <ActiveSectionContextProvider>{children}</ActiveSectionContextProvider>
+        <ActiveSectionContextProvider>
+          <Navigation />
+          {children}
+        </ActiveSectionContextProvider>
         {/* </NextIntlClientProvider> */}
       </body>
     </html>

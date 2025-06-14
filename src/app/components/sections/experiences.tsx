@@ -5,28 +5,34 @@ import { useRef } from "react";
 
 const experiences = [
   {
-    year: "2023–Present",
-    role: "Frontend Engineer",
-    company: "Rezerv",
-    description:
-      "Building real-time chat apps, resume tools, and AI-driven guitar tools using Next.js, Nest.js, tRPC, and AWS.",
-  },
-  {
-    year: "2023–Present",
-    role: "Frontend Engineer",
-    company: "Rezerv",
-    description:
-      "Building real-time chat apps, resume tools, and AI-driven guitar tools using Next.js, Nest.js, tRPC, and AWS.",
-  },
-  {
-    year: "2022",
+    year: "2021–2022",
     role: "Junior Frontend Developer",
     company: "Neva Financial",
     description:
-      "Developed a client portfolio dashboard using the MERN stack, with a focus on UI responsiveness and API integration.",
+      "Built a full-stack client dashboard using the MERN stack. Focused on responsive UI design and seamless integration with REST APIs.",
+  },
+  {
+    year: "2022–2025",
+    role: "Frontend Developer",
+    company: "Rezerv",
+    description:
+      "Built and maintained booking platforms used by 400k+ users. Integrated payment gateways like Stripe and PayNow, developed marketing automation features, and deployed apps via GitHub Actions and AWS Amplify.",
+  },
+  {
+    year: "2024–Present",
+    role: "B.Sc. Computing Student",
+    company: "University of Greenwich",
+    description:
+      "Studying core computer science subjects including Human-Computer Interaction, Mobile Development, and Web Enterprise Systems. Focused on building software aligned with industry standards.",
+  },
+  {
+    year: "2025–Present",
+    role: "Senior Frontend Developer",
+    company: "Rezerv",
+    description:
+      "Leading frontend development of the Rezerv SaaS platform, mentoring junior developers, and architecting scalable UI systems using React, Tailwind CSS, and TypeScript.",
   },
 ];
-
 export function Experiences() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -56,12 +62,11 @@ export function Experiences() {
           {/* Timeline vertical line */}
           <motion.div
             style={{ scaleY: scrollYProgress }}
-            className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 origin-top rounded bg-primary"
+            className="hidden lg:block absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 origin-top rounded bg-primary"
           />
 
           <div className="space-y-16">
             {" "}
-            {/* Reduced from space-y-32 to space-y-16 */}
             {experiences.map((exp, i) => {
               const isLeft = i % 2 === 0;
               const start = i * (1 / experiences.length);
@@ -96,14 +101,14 @@ export function Experiences() {
                   }`}
                 >
                   {/* Timeline dot (centered) */}
-                  <div className="absolute top-1/2 left-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary border-4 border-background" />
+                  <div className="hidden lg:block absolute top-1/2 left-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary border-4 border-background" />
 
                   {/* Card Container with Connector */}
                   <div className={`relative ${isLeft ? "mr-8" : "ml-8"}`}>
                     {/* Connector line to center */}
-                    <div
+                    <motion.div
                       className={`
-                        absolute top-1/2 h-0.5 bg-primary
+                        hidden lg:block absolute top-1/2 h-1 bg-primary
                         ${isLeft ? "left-full" : "right-full"}
                       `}
                       style={{
@@ -113,7 +118,7 @@ export function Experiences() {
                     />
 
                     {/* Experience Card */}
-                    <div className="group relative w-full max-w-md rounded-xl border bg-muted/50 p-6 backdrop-blur-lg shadow-xl transition hover:shadow-2xl">
+                    <div className="group relative w-full max-w-md rounded-xl border bg-primary-foreground p-6 backdrop-blur-lg shadow-xl transition hover:shadow-2xl">
                       <motion.h3
                         className="text-xl font-semibold text-foreground"
                         initial={{ opacity: 0 }}
