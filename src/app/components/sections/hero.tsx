@@ -100,25 +100,29 @@ export function Hero() {
             className="fixed left-8 z-20 top-1/2 hidden -translate-y-1/2 flex-col gap-4 md:flex"
           >
             {[
-              { icon: MdEmail, url: "mailto:kaungkhantthar77@gmail.com" },
               { icon: BsGithub, url: "https://github.com/kaungkhant-thar" },
               {
                 icon: BsLinkedin,
                 url: "https://www.linkedin.com/in/kaung-khant-thar-b978ab1a1/",
               },
-            ].map((item, index) => (
-              <motion.a
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                key={index}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground  transition-colors hover:text-foreground"
-              >
-                <item.icon className="h-6 w-6" />
-              </motion.a>
-            ))}
+            ].map((item, index) => {
+              const isMail = item.url.startsWith("mailto:");
+              return (
+                <motion.a
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  key={index}
+                  href={item.url}
+                  {...(!isMail && {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
+                  className="text-muted-foreground  transition-colors hover:text-foreground"
+                >
+                  <item.icon className="h-6 w-6" />
+                </motion.a>
+              );
+            })}
           </motion.div>
         </div>
       </div>
