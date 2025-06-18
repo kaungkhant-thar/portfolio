@@ -94,7 +94,11 @@ export function About() {
               ))}
             </motion.div>
             <Button className="mt-6 gap-2" asChild>
-              <a href="/Kaung-Khant-Resume.pdf" download>
+              <a
+                href="https://ik.imagekit.io/wxk4trjev/assets/Kaung%20Khant%20Thar%20Resume.pdf"
+                target="_blank"
+                download
+              >
                 <FaDownload className="h-4 w-4" />
                 Download CV
               </a>
