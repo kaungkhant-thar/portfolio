@@ -5,6 +5,7 @@ import "./globals.css";
 import ActiveSectionContextProvider from "@/context/action-section-context";
 import { Navigation } from "./components/ui/navigation/nav";
 import Script from "next/script";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,6 +53,7 @@ export default async function RootLayout({
         <ActiveSectionContextProvider>
           <Navigation />
           {children}
+          <Toaster />
         </ActiveSectionContextProvider>
         {/* </NextIntlClientProvider> */}
       </body>

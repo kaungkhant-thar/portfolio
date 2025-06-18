@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 
 import { useForm } from "react-hook-form";
 import { BiMailSend, BiMapPin, BiPhone } from "react-icons/bi";
+import { toast } from "sonner";
 
 export function Contact() {
   const { ref } = useSectionInView("contact", 0.5);
@@ -15,9 +16,26 @@ export function Contact() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
-    // Add your form submission logic here
+  const onSubmit = async (data: any) => {
+    console.log({ data });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const result = await res.json();
+      console.log({ result });
+      if (result.success) {
+        toast.success("Message sent.");
+      } else {
+        toast.error("Failed to send. Try again later.");
+      }
+    } catch (err) {
+      toast.error("Error submitting form.");
+      console.error(err);
+    }
   };
 
   return (
