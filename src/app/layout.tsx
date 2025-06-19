@@ -53,7 +53,7 @@ export default async function RootLayout({
         <ActiveSectionContextProvider>
           <Navigation />
           {children}
-          <Toaster />
+          <Toaster richColors />
         </ActiveSectionContextProvider>
         {/* </NextIntlClientProvider> */}
       </body>
