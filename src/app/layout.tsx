@@ -6,6 +6,9 @@ import ActiveSectionContextProvider from "@/context/action-section-context";
 import { Navigation } from "./components/ui/navigation/nav";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
+import { MagneticCursor } from "@/components/ui/magnetic-cursor";
+import { AnimatedBackground } from "@/components/ui/animated-background";
+import { ThemeProvider } from "../components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,25 +40,34 @@ export default async function RootLayout({
       </head>
 
       <body className={`${inter.className} bg-background text-foreground `}>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-2V20LE2R55"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-2V20LE2R55');
-    `}
-        </Script>
-        {/* <NextIntlClientProvider locale={locale} messages={messages}> */}
-        <ActiveSectionContextProvider>
-          <Navigation />
-          {children}
-          <Toaster richColors />
-        </ActiveSectionContextProvider>
-        {/* </NextIntlClientProvider> */}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-2V20LE2R55"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2V20LE2R55');
+      `}
+          </Script>
+          {/* <NextIntlClientProvider locale={locale} messages={messages}> */}
+          <ActiveSectionContextProvider>
+            <AnimatedBackground />
+            <MagneticCursor />
+            <Navigation />
+            {children}
+            <Toaster richColors />
+          </ActiveSectionContextProvider>
+          {/* </NextIntlClientProvider> */}
+        </ThemeProvider>
       </body>
     </html>
   );

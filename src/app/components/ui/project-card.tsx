@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "motion/react";
 
 import { Project } from "@/lib/types";
 import { Button } from "./button";
@@ -16,53 +17,159 @@ export function ProjectCard({
   liveUrl,
 }: Project) {
   return (
-    <article className="group relative overflow-hidden rounded-lg border bg-card shadow-sm transition-all hover:shadow-md">
-      <div className="relative h-60 overflow-hidden">
+    <motion.article 
+      className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-background via-background to-background/80 backdrop-blur-sm border border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ 
+        y: -8, 
+        rotateX: 2, 
+        rotateY: 2,
+        scale: 1.02
+      }}
+      transition={{ 
+        duration: 0.4,
+        type: "spring",
+        stiffness: 200
+      }}
+      style={{
+        transformStyle: "preserve-3d",
+        perspective: "1000px"
+      }}
+    >
+      {/* Gradient overlay for modern look */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-secondary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      
+      <div className="relative h-52 overflow-hidden rounded-t-2xl">
         <Image
           src={imageUrl}
           alt={title}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        <div className="absolute bottom-4 left-4 right-4 flex translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          <div className="flex gap-2">
-            {githubUrl && (
+        {/* Image overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Floating action buttons */}
+        <motion.div 
+          className="absolute top-4 right-4 flex gap-2"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileHover={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          {githubUrl && (
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="sm"
                 variant="secondary"
                 asChild
-                className="rounded-full"
+                className="backdrop-blur-md bg-background/80 hover:bg-background/90 border-0 shadow-lg rounded-xl h-9 w-9 p-0"
               >
                 <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                  <BsGithub />
+                  <BsGithub className="h-4 w-4" />
                 </a>
               </Button>
-            )}
-            {liveUrl && (
-              <Button size="sm" asChild className="rounded-full">
+            </motion.div>
+          )}
+          {liveUrl && (
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+              <Button 
+                size="sm" 
+                asChild
+                className="backdrop-blur-md bg-primary/90 hover:bg-primary shadow-lg border-0 rounded-xl h-9 w-9 p-0"
+              >
                 <a href={liveUrl} target="_blank" rel="noopener noreferrer">
                   <FiExternalLink className="h-4 w-4" />
                 </a>
               </Button>
-            )}
-          </div>
-        </div>
+            </motion.div>
+          )}
+        </motion.div>
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold">{title}</h3>
-        <p className="mt-2 text-muted-foreground">{description}</p>
-        <ul className="mt-4 flex flex-wrap gap-2">
+
+      <div className="relative p-6 space-y-4">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          <h3 className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent group-hover:from-primary group-hover:to-primary/80 transition-all duration-300">
+            {title}
+          </h3>
+          <p className="text-muted-foreground leading-relaxed mt-2 line-clamp-2">
+            {description}
+          </p>
+        </motion.div>
+        
+        <motion.div 
+          className="flex flex-wrap gap-2"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
           {tags.map((tag, index) => (
-            <li
+            <motion.span
               key={index}
-              className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary"
+              className="px-3 py-1.5 bg-gradient-to-r from-secondary/80 to-secondary/60 text-secondary-foreground text-xs font-medium rounded-full border border-border/30 hover:border-primary/30 hover:from-primary/10 hover:to-primary/5 transition-all duration-300 cursor-default"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 + index * 0.05 }}
+              whileHover={{ scale: 1.05, y: -1 }}
             >
               {tag}
-            </li>
+            </motion.span>
           ))}
-        </ul>
+        </motion.div>
+
+        {/* Bottom action bar */}
+        <motion.div 
+          className="flex gap-3 pt-2"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          {githubUrl && (
+            <motion.div 
+              className="flex-1"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button 
+                variant="outline" 
+                size="sm" 
+                asChild 
+                className="w-full rounded-xl border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+              >
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                  <BsGithub className="h-4 w-4 mr-2" />
+                  View Code
+                </a>
+              </Button>
+            </motion.div>
+          )}
+          {liveUrl && (
+            <motion.div 
+              className="flex-1"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button 
+                size="sm" 
+                asChild
+                className="w-full rounded-xl bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-md hover:shadow-lg transition-all duration-300"
+              >
+                <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+                  <FiExternalLink className="h-4 w-4 mr-2" />
+                  Live Demo
+                </a>
+              </Button>
+            </motion.div>
+          )}
+        </motion.div>
       </div>
-    </article>
+    </motion.article>
   );
 }

@@ -3,11 +3,13 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
-import { Button } from "@/components/ui/button";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import BgBlur from "../ui/bg-blur";
 import { BsArrowDown, BsGithub, BsLinkedin } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
+import { MagneticButton } from "@/components/ui/magnetic-button";
+import { TextReveal } from "@/components/ui/text-reveal";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function Hero() {
   const { ref: sectionRef } = useSectionInView("home", 0.5);
@@ -35,51 +37,31 @@ export function Hero() {
       <div ref={containerRef} className="relative h-dvh w-full">
         <div className="container mx-auto flex h-full flex-col items-center justify-center px-4">
           <motion.div style={{ y: yHeading }} className="text-center max-w-3xl">
-            <h1 className="text-3xl  font-bold sm:text-6xl md:text-7xl lg:text-8xl">
-              {[...heading].map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.03 * index }}
-                  className={`inline-block ${
-                    char === "K" ? "text-primary" : ""
-                  }`}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </h1>
-            <motion.h2
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="mt-4 text-xl sm:text-3xl md:text-4xl"
-            >
-              Full Stack Developer & Cloud Enthusiast
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="mt-6 max-w-md text-lg text-muted-foreground sm:text-xl mx-auto"
-            >
-              I build modern full-stack applications with real-time, AI-powered
-              experiences — deployed with scalable cloud infrastructure.
-            </motion.p>
-            <motion.div
-              className="mt-8 flex gap-4 justify-center"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-            >
-              <Button size="lg" asChild>
-                <a href="#projects">View my work</a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="#contact">Contact me</a>
-              </Button>
-            </motion.div>
+            <TextReveal
+              text={heading}
+              className="text-3xl font-bold sm:text-6xl md:text-7xl lg:text-8xl"
+            />
+            <ScrollReveal delay={0.3}>
+              <h2 className="mt-4 text-xl sm:text-3xl md:text-4xl bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+                Full Stack Engineer & Cloud Architect
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={0.5}>
+              <p className="mt-6 max-w-md text-lg text-muted-foreground sm:text-xl mx-auto">
+                I craft enterprise-grade applications with cutting-edge AI integration,
+                real-time capabilities, and bulletproof cloud infrastructure that scales.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.7}>
+              <div className="mt-8 flex gap-4 justify-center">
+                <MagneticButton size="lg" href="#projects">
+                  View my work
+                </MagneticButton>
+                <MagneticButton size="lg" variant="outline" href="#contact">
+                  Contact me
+                </MagneticButton>
+              </div>
+            </ScrollReveal>
           </motion.div>
 
           {/* Bouncing arrow */}
@@ -109,15 +91,24 @@ export function Hero() {
               const isMail = item.url.startsWith("mailto:");
               return (
                 <motion.a
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  whileHover={{ 
+                    scale: 1.3, 
+                    rotate: 360,
+                    backgroundColor: "hsl(var(--primary))",
+                    color: "hsl(var(--primary-foreground))"
+                  }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 400,
+                    damping: 10
+                  }}
                   key={index}
                   href={item.url}
                   {...(!isMail && {
                     target: "_blank",
                     rel: "noopener noreferrer",
                   })}
-                  className="text-muted-foreground  transition-colors hover:text-foreground"
+                  className="text-muted-foreground transition-all duration-300 hover:text-foreground p-3 rounded-full border border-border/50 backdrop-blur-sm"
                 >
                   <item.icon className="h-6 w-6" />
                 </motion.a>

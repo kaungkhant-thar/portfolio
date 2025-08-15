@@ -117,9 +117,9 @@ export function Experiences() {
                     />
 
                     {/* Experience Card */}
-                    <div className="group relative w-full max-w-md rounded-xl border bg-primary-foreground p-6 backdrop-blur-lg shadow-xl transition hover:shadow-2xl">
+                    <div className="group relative w-full max-w-md rounded-xl border border-border bg-card p-6 backdrop-blur-lg shadow-xl transition hover:shadow-2xl">
                       <motion.h3
-                        className="text-xl font-semibold text-foreground"
+                        className="text-xl font-semibold text-card-foreground"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
@@ -146,7 +146,7 @@ export function Experiences() {
                         {exp.year}
                       </motion.p>
                       <motion.p
-                        className="mt-4 text-sm leading-relaxed text-foreground/80"
+                        className="mt-4 text-sm leading-relaxed text-card-foreground/80"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}

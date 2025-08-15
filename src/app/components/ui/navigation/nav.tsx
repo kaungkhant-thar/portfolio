@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { NavItem } from "./nav-item";
 import { Button } from "../button";
+import { ThemeToggle } from "../../../../components/ui/theme-toggle";
 
 const sections = [
   { id: "hero", title: "Home" },
@@ -58,72 +59,78 @@ export const Navigation = () => {
       aria-label="Primary navigation"
     >
       {/* Desktop */}
-      <ul className="hidden sm:flex items-center justify-center rounded-full bg-background/80 px-6 py-2 shadow-xl backdrop-blur-xl">
-        {sections.map((section) => (
-          <NavItem
-            key={section.id}
-            href={`#${section.id}`}
-            title={section.title}
-            isActive={activeSection === section.id}
-          />
-        ))}
-      </ul>
+      <div className="hidden sm:flex items-center justify-center rounded-full bg-background/80 px-6 py-2 shadow-xl backdrop-blur-xl gap-4">
+        <ul className="flex items-center justify-center">
+          {sections.map((section) => (
+            <NavItem
+              key={section.id}
+              href={`#${section.id}`}
+              title={section.title}
+              isActive={activeSection === section.id}
+            />
+          ))}
+        </ul>
+        <ThemeToggle />
+      </div>
 
       {/* Mobile Top Bar */}
       <div className="sm:hidden flex items-center justify-between bg-background/80 rounded-full px-4 py-2 shadow-md backdrop-blur-md w-full">
         <span className="text-base font-semibold text-foreground">Kaung</span>
 
-        {/* Hamburger */}
-        <Button
-          variant={"ghost"}
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          aria-label="Toggle menu"
-          className="w-8 cursor-pointer h-8 flex items-center justify-center"
-        >
-          <motion.svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="w-6 h-6 text-foreground"
-            initial={false}
-            animate={isMenuOpen ? "open" : "closed"}
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          {/* Hamburger */}
+          <Button
+            variant={"ghost"}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+            className="w-8 cursor-pointer h-8 flex items-center justify-center"
           >
-            <motion.line
-              x1="3"
-              y1="6"
-              x2="21"
-              y2="6"
-              variants={{
-                closed: { rotate: 0, translateY: 0 },
-                open: { rotate: 45, translateY: 6 },
-              }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.line
-              x1="3"
-              y1="12"
-              x2="21"
-              y2="12"
-              variants={{
-                closed: { opacity: 1 },
-                open: { opacity: 0 },
-              }}
-              transition={{ duration: 0.2 }}
-            />
-            <motion.line
-              x1="3"
-              y1="18"
-              x2="21"
-              y2="18"
-              variants={{
-                closed: { rotate: 0, translateY: 0 },
-                open: { rotate: -45, translateY: -6 },
-              }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.svg>
-        </Button>
+            <motion.svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="w-6 h-6 text-foreground"
+              initial={false}
+              animate={isMenuOpen ? "open" : "closed"}
+            >
+              <motion.line
+                x1="3"
+                y1="6"
+                x2="21"
+                y2="6"
+                variants={{
+                  closed: { rotate: 0, translateY: 0 },
+                  open: { rotate: 45, translateY: 6 },
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.line
+                x1="3"
+                y1="12"
+                x2="21"
+                y2="12"
+                variants={{
+                  closed: { opacity: 1 },
+                  open: { opacity: 0 },
+                }}
+                transition={{ duration: 0.2 }}
+              />
+              <motion.line
+                x1="3"
+                y1="18"
+                x2="21"
+                y2="18"
+                variants={{
+                  closed: { rotate: 0, translateY: 0 },
+                  open: { rotate: -45, translateY: -6 },
+                }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.svg>
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Dropdown */}
