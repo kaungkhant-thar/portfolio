@@ -7,7 +7,7 @@ export function AnimatedUnderline() {
     hidden: { pathLength: 0 },
     visible: {
       pathLength: 1,
-      transition: { duration: 1.5, ease: "easeInOut" },
+      transition: { duration: 1.5, ease: [0.42, 0, 0.58, 1] as const },
     },
   };
 
