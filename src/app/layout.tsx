@@ -42,7 +42,7 @@ export default async function RootLayout({
       <body className={`${inter.className} bg-background text-foreground `}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
