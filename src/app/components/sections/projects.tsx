@@ -75,6 +75,7 @@ export function Projects({ projects }: Props) {
 
   return (
     <section
+      id="projects"
       ref={ref}
       className="scroll-mt-28 relative overflow-hidden min-h-screen"
     >
