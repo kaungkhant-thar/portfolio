@@ -13,6 +13,7 @@ import { PROJECTS_QUERYResult } from "../../../sanity/types";
 type Props = {
   projects: PROJECTS_QUERYResult;
 };
+
 export function Projects({ projects }: Props) {
   const { ref } = useSectionInView("projects", 0.5);
   const [currentProject, setCurrentProject] = useState(0);
@@ -28,30 +29,36 @@ export function Projects({ projects }: Props) {
     setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
   }, [projects.length]);
 
-  const goToProject = useCallback((index: number) => {
-    setDirection(index > currentProject ? 1 : -1);
-    setCurrentProject(index);
-  }, [currentProject]);
+  const goToProject = useCallback(
+    (index: number) => {
+      setDirection(index > currentProject ? 1 : -1);
+      setCurrentProject(index);
+    },
+    [currentProject]
+  );
 
-  const handleDragEnd = useCallback((
-    event: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo
-  ) => {
-    const swipeThreshold = 50;
-    const swipeVelocityThreshold = 500;
-    
-    if (Math.abs(info.offset.x) > swipeThreshold || Math.abs(info.velocity.x) > swipeVelocityThreshold) {
-      if (info.offset.x > 0) {
-        prevProject();
-      } else {
-        nextProject();
+  const handleDragEnd = useCallback(
+    (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      const swipeThreshold = 50;
+      const swipeVelocityThreshold = 500;
+
+      if (
+        Math.abs(info.offset.x) > swipeThreshold ||
+        Math.abs(info.velocity.x) > swipeVelocityThreshold
+      ) {
+        if (info.offset.x > 0) {
+          prevProject();
+        } else {
+          nextProject();
+        }
       }
-    }
-  }, [nextProject, prevProject]);
+    },
+    [nextProject, prevProject]
+  );
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? '100%' : '-100%',
+      x: direction > 0 ? "100%" : "-100%",
       opacity: 0,
     }),
     center: {
@@ -61,13 +68,16 @@ export function Projects({ projects }: Props) {
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? '100%' : '-100%',
+      x: direction < 0 ? "100%" : "-100%",
       opacity: 0,
     }),
   };
 
   return (
-    <section ref={ref} className="scroll-mt-28 relative overflow-hidden min-h-screen">
+    <section
+      ref={ref}
+      className="scroll-mt-28 relative overflow-hidden min-h-screen"
+    >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background opacity-50" />
 
@@ -142,7 +152,7 @@ export function Projects({ projects }: Props) {
               <FiChevronLeft className="h-5 w-5" />
             </Button>
           </div>
-          
+
           <div className="absolute right-4 top-1/2 -translate-y-1/2 z-20">
             <Button
               variant="outline"
@@ -211,18 +221,6 @@ export function Projects({ projects }: Props) {
               </button>
             ))}
           </div>
-
-          {/* Project Counter */}
-          <motion.div
-            className="text-center mt-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            <span className="text-sm text-muted-foreground">
-              {String(currentProject + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
-            </span>
-          </motion.div>
         </div>
       </div>
     </section>

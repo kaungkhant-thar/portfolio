@@ -19,8 +19,8 @@ const experiences = [
       "Built and maintained booking platforms used by 400k+ users. Integrated payment gateways like Stripe and PayNow, developed marketing automation features, and deployed apps via GitHub Actions and AWS Amplify.",
   },
   {
-    year: "2024–Present",
-    role: "B.Sc. Computing Student",
+    year: "2024–2025",
+    role: "B.Sc. (First Class)",
     company: "University of Greenwich",
     description:
       "Studying core computer science subjects including Human-Computer Interaction, Mobile Development, and Web Enterprise Systems. Focused on building software aligned with industry standards.",

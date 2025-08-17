@@ -37,23 +37,9 @@ export function ProjectCard({
           stiffness: 100,
         }}
       >
-        {/* Project counter */}
-        <div className="absolute top-6 left-6 z-20">
-          <motion.div
-            className="px-4 py-2 bg-primary/10 backdrop-blur-md rounded-full border border-primary/20"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <span className="text-sm font-medium text-primary">
-              {String(projectIndex + 1).padStart(2, '0')} / {String(totalProjects).padStart(2, '0')}
-            </span>
-          </motion.div>
-        </div>
-
         <div className="grid lg:grid-cols-5 gap-8 p-8 lg:p-12 min-h-[70vh]">
           {/* Image section */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-3 relative h-96 lg:h-full overflow-hidden rounded-2xl order-2 lg:order-1"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -69,7 +55,7 @@ export function ProjectCard({
           </motion.div>
 
           {/* Content section */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-2 flex flex-col justify-center space-y-6 order-1 lg:order-2"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
