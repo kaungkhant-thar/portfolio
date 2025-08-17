@@ -166,7 +166,7 @@ export function Projects({ projects }: Props) {
           </div>
 
           {/* Project Display */}
-          <div className="relative h-[70vh] min-h-[600px] overflow-hidden rounded-3xl">
+          <div className="relative md:h-[70vh] min-h-[600px] overflow-hidden rounded-3xl">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentProject}
@@ -183,10 +183,10 @@ export function Projects({ projects }: Props) {
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.1}
                 onDragEnd={handleDragEnd}
-                className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing"
+                className="absolute inset-0 flex items-center justify-center"
                 whileDrag={{ scale: 0.95 }}
               >
-                <div className="w-full pointer-events-none">
+                <div className="w-full pointer-events-auto">
                   <ProjectCard
                     {...projects[currentProject]}
                     isFullScreen={true}

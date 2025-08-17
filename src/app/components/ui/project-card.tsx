@@ -37,10 +37,10 @@ export function ProjectCard({
           stiffness: 100,
         }}
       >
-        <div className="grid lg:grid-cols-5 gap-8 p-8 lg:p-12 min-h-[70vh]">
+        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-6 lg:gap-8 p-4 sm:p-6 lg:p-12 min-h-[60vh] sm:min-h-[65vh] lg:min-h-[70vh]">
           {/* Image section */}
           <motion.div
-            className="lg:col-span-3 relative h-96 lg:h-full overflow-hidden rounded-2xl order-2 lg:order-1"
+            className="lg:col-span-3 relative h-48 sm:h-56 md:h-64 lg:h-full overflow-hidden rounded-2xl order-1"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -56,7 +56,7 @@ export function ProjectCard({
 
           {/* Content section */}
           <motion.div
-            className="lg:col-span-2 flex flex-col justify-center space-y-6 order-1 lg:order-2"
+            className="lg:col-span-2 flex flex-col justify-center space-y-4 lg:space-y-6 order-1 lg:order-2"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -66,10 +66,10 @@ export function ProjectCard({
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              <h3 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent mb-4">
+              <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent mb-3 lg:mb-4">
                 {title}
               </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
                 {description}
               </p>
             </motion.div>
@@ -95,7 +95,7 @@ export function ProjectCard({
             </motion.div>
 
             <motion.div
-              className="flex gap-4 pt-4"
+              className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 }}
@@ -109,7 +109,7 @@ export function ProjectCard({
                     variant="outline"
                     size="lg"
                     asChild
-                    className="rounded-xl border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                    className="w-full sm:w-auto rounded-xl border-border/50 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
                   >
                     <a href={repoUrl} target="_blank" rel="noopener noreferrer">
                       <BsGithub className="h-5 w-5 mr-3" />
@@ -126,7 +126,7 @@ export function ProjectCard({
                   <Button
                     size="lg"
                     asChild
-                    className="rounded-xl bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="w-full sm:w-auto rounded-xl bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <a href={liveUrl} target="_blank" rel="noopener noreferrer">
                       <FiExternalLink className="h-5 w-5 mr-3" />
@@ -144,7 +144,7 @@ export function ProjectCard({
 
   return (
     <motion.article
-      className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-background via-background to-background/80 backdrop-blur-sm border border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500"
+      className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-background via-background to-background/80 backdrop-blur-sm border border-border/50 shadow-lg hover:shadow-2xl transition-all duration-500 w-full max-w-sm mx-auto sm:max-w-none"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -167,7 +167,7 @@ export function ProjectCard({
       {/* Gradient overlay for modern look */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-secondary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div className="relative h-64 overflow-hidden rounded-t-2xl">
+      <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-2xl">
         <Image
           src={image || ""}
           alt={title || ""}
@@ -175,11 +175,11 @@ export function ProjectCard({
           className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
         />
         {/* Image overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" /> */}
 
         {/* Floating action buttons */}
         <motion.div
-          className="absolute top-4 right-4 flex gap-2"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 flex gap-2"
           initial={{ opacity: 0, scale: 0.8 }}
           whileHover={{ opacity: 1, scale: 1 }}
           animate={{ opacity: 0 }}
@@ -192,7 +192,7 @@ export function ProjectCard({
                 size="sm"
                 variant="secondary"
                 asChild
-                className="backdrop-blur-md bg-background/80 hover:bg-background/90 border-0 shadow-lg rounded-xl h-9 w-9 p-0"
+                className="backdrop-blur-md bg-background/80 hover:bg-background/90 border-0 shadow-lg rounded-xl h-8 w-8 sm:h-9 sm:w-9 p-0"
               >
                 <a href={repoUrl} target="_blank" rel="noopener noreferrer">
                   <BsGithub className="h-4 w-4" />
@@ -205,7 +205,7 @@ export function ProjectCard({
               <Button
                 size="sm"
                 asChild
-                className="backdrop-blur-md bg-primary/90 hover:bg-primary shadow-lg border-0 rounded-xl h-9 w-9 p-0"
+                className="backdrop-blur-md bg-primary/90 hover:bg-primary shadow-lg border-0 rounded-xl h-8 w-8 sm:h-9 sm:w-9 p-0"
               >
                 <a href={liveUrl} target="_blank" rel="noopener noreferrer">
                   <FiExternalLink className="h-4 w-4" />
@@ -216,16 +216,16 @@ export function ProjectCard({
         </motion.div>
       </div>
 
-      <div className="relative p-6 space-y-4">
+      <div className="relative p-4 sm:p-6 space-y-3 sm:space-y-4">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <h3 className="text-xl font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent group-hover:from-primary group-hover:to-primary/80 transition-all duration-300">
+          <h3 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent group-hover:from-primary group-hover:to-primary/80 transition-all duration-300">
             {title}
           </h3>
-          <p className="text-muted-foreground leading-relaxed mt-2 line-clamp-2">
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-2 line-clamp-2">
             {description}
           </p>
         </motion.div>
@@ -239,7 +239,7 @@ export function ProjectCard({
           {techStack?.map((tag, index) => (
             <motion.span
               key={index}
-              className="px-3 py-1.5 bg-gradient-to-r from-secondary/80 to-secondary/60 text-secondary-foreground text-xs font-medium rounded-full border border-border/30 hover:border-primary/30 hover:from-primary/10 hover:to-primary/5 transition-all duration-300 cursor-default"
+              className="px-2.5 py-1 sm:px-3 sm:py-1.5 bg-gradient-to-r from-secondary/80 to-secondary/60 text-secondary-foreground text-xs font-medium rounded-full border border-border/30 hover:border-primary/30 hover:from-primary/10 hover:to-primary/5 transition-all duration-300 cursor-default"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 + index * 0.05 }}
@@ -252,7 +252,7 @@ export function ProjectCard({
 
         {/* Bottom action bar */}
         <motion.div
-          className="flex gap-3 pt-2"
+          className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
@@ -267,7 +267,7 @@ export function ProjectCard({
                 variant="outline"
                 size="sm"
                 asChild
-                className="w-full rounded-xl border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                className="w-full text-xs sm:text-sm rounded-xl border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
               >
                 <a href={repoUrl} target="_blank" rel="noopener noreferrer">
                   <BsGithub className="h-4 w-4 mr-2" />
@@ -285,7 +285,7 @@ export function ProjectCard({
               <Button
                 size="sm"
                 asChild
-                className="w-full rounded-xl bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-md hover:shadow-lg transition-all duration-300"
+                className="w-full text-xs sm:text-sm rounded-xl bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-md hover:shadow-lg transition-all duration-300"
               >
                 <a href={liveUrl} target="_blank" rel="noopener noreferrer">
                   <FiExternalLink className="h-4 w-4 mr-2" />
