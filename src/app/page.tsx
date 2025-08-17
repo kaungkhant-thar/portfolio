@@ -14,7 +14,7 @@ const PROJECTS_QUERY = defineQuery(
 );
 export default async function Home() {
   const projects = await client.fetch(PROJECTS_QUERY, {});
-  console.log({ projects });
+
   return (
     <main className="overflow-x-hidden">
       <Hero />

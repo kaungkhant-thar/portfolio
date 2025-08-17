@@ -84,7 +84,7 @@ export const Navigation = () => {
             variant={"ghost"}
             onClick={() => setIsMenuOpen((prev) => !prev)}
             aria-label="Toggle menu"
-            className="w-8 cursor-pointer h-8 flex items-center justify-center"
+            className="w-8 cursor-pointer text-primary h-8 flex items-center justify-center"
           >
             <motion.svg
               viewBox="0 0 24 24"

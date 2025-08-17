@@ -17,7 +17,6 @@ export function Contact() {
   } = useForm();
 
   const onSubmit = async (data: any) => {
-    console.log({ data });
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
