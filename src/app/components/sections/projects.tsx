@@ -141,7 +141,7 @@ export function Projects({ projects }: Props) {
         {/* Project Carousel */}
         <div className="relative max-w-7xl mx-auto">
           {/* Navigation Buttons */}
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 z-20">
+          <div className="absolute hidden md:block left-4 top-1/2 -translate-y-1/2 z-20">
             <Button
               variant="outline"
               size="icon"
@@ -152,7 +152,7 @@ export function Projects({ projects }: Props) {
             </Button>
           </div>
 
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 z-20">
+          <div className="absolute hidden md:block right-4 top-1/2 -translate-y-1/2 z-20">
             <Button
               variant="outline"
               size="icon"
@@ -164,7 +164,7 @@ export function Projects({ projects }: Props) {
           </div>
 
           {/* Project Display */}
-          <div className="relative md:h-[70vh] min-h-[600px] overflow-hidden rounded-3xl">
+          <div className="relative md:h-[70vh] min-h-[600px]  rounded-3xl">
             <AnimatePresence
               initial={false}
               custom={direction}

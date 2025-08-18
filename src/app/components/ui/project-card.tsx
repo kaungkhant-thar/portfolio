@@ -37,7 +37,7 @@ export function ProjectCard({
           stiffness: 100,
         }}
       >
-        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-6 lg:gap-8 p-4 sm:p-6 lg:p-12 min-h-[60vh] sm:min-h-[65vh] lg:min-h-[70vh]">
+        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-6 lg:gap-8 sm:p-6 lg:p-12 min-h-[60vh] sm:min-h-[65vh] lg:min-h-[70vh]">
           {/* Image section */}
           <motion.div
             className="lg:col-span-3 relative h-48 sm:h-56 md:h-64 lg:h-full overflow-hidden rounded-2xl order-1"
