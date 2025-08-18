@@ -37,7 +37,7 @@ export function Experiences() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start center", "end center"],
+    offset: ["start start", "end end"],
   });
 
   return (
@@ -46,9 +46,9 @@ export function Experiences() {
       id="experiences"
       className="relative py-16 bg-background"
     >
-      <div className="container mx-auto px-4 ">
+      <div className="container mx-auto px-4  ">
         <motion.h2
-          className="mb-12 text-center text-3xl font-bold sm:text-4xl"
+          className="my-36 text-center text-3xl font-bold sm:text-4xl"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -57,12 +57,26 @@ export function Experiences() {
           My Journey
         </motion.h2>
 
-        <div className="relative">
-          {/* Timeline vertical line */}
-          <motion.div
-            style={{ scaleY: scrollYProgress }}
-            className="hidden lg:block absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 origin-top rounded bg-primary"
-          />
+        <div className="relative my-10 ">
+          <div className="text-primary">
+            <motion.svg
+              width={1179}
+              height={947}
+              viewBox="0 0 1179 947"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="absolute left-1/2 top-0 -translate-x-1/2"
+              strokeWidth={7}
+            >
+              <motion.path
+                d="M117.488 0C286.988 131 750.5 88 815 187S268.174 440.54 63.488 461.5s153 344.5 223.5 167 295.054 326.173 316 24 360.5 48.5 344.5-110.5-113 350.5-184.5 110.5S1199 1053 1248.5 930.5"
+                stroke="currentColor"
+                initial={{ pathLength: 0 }}
+                style={{ pathLength: scrollYProgress }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              />
+            </motion.svg>
+          </div>
 
           <div className="space-y-16">
             {" "}
@@ -76,11 +90,7 @@ export function Experiences() {
                 [start, end],
                 isLeft ? [-100, 0] : [100, 0]
               );
-              const opacity = useTransform(
-                scrollYProgress,
-                [start - 0.1, start + 0.2],
-                [0, 1]
-              );
+
               const scale = useTransform(
                 scrollYProgress,
                 [start - 0.1, start + 0.2],
@@ -90,32 +100,19 @@ export function Experiences() {
               return (
                 <motion.div
                   key={i}
-                  style={{
-                    x,
-                    opacity,
-                    scale,
+                  style={{ x, scale }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.8,
+                    ease: "easeOut",
+                    delay: i * 0.2, // staggered reveal
                   }}
-                  className={`relative flex w-full ${
-                    isLeft ? "justify-start" : "justify-end"
-                  }`}
+                  viewport={{ once: true }}
+                  className={`relative flex w-full ${isLeft ? "justify-start" : "justify-end"}`}
                 >
-                  {/* Timeline dot (centered) */}
-                  <div className="hidden lg:block absolute top-1/2 left-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary border-4 border-background" />
-
                   {/* Card Container with Connector */}
                   <div className={`relative ${isLeft ? "mr-8" : "ml-8"}`}>
-                    {/* Connector line to center */}
-                    <motion.div
-                      className={`
-                        hidden lg:block absolute top-1/2 h-1 bg-primary
-                        ${isLeft ? "left-full" : "right-full"}
-                      `}
-                      style={{
-                        width: "calc(50% - 3rem)",
-                        transform: "translateY(-50%)",
-                      }}
-                    />
-
                     {/* Experience Card */}
                     <div className="group relative w-full max-w-md rounded-xl border border-border bg-card p-6 backdrop-blur-lg shadow-xl transition hover:shadow-2xl">
                       <motion.h3
