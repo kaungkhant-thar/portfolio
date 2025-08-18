@@ -87,25 +87,23 @@ export function Projects({ projects }: Props) {
         <motion.div
           className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-br from-primary/10 via-primary/5 to-transparent blur-3xl"
           animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 180, 360],
+            scale: [1, 1.05, 1],
           }}
           transition={{
-            duration: 20,
+            duration: 30,
             repeat: Infinity,
-            ease: "linear",
+            ease: "easeInOut",
           }}
         />
         <motion.div
           className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-tr from-secondary/10 via-secondary/5 to-transparent blur-3xl"
           animate={{
-            scale: [1.1, 1, 1.1],
-            rotate: [360, 180, 0],
+            scale: [1.05, 1, 1.05],
           }}
           transition={{
-            duration: 25,
+            duration: 35,
             repeat: Infinity,
-            ease: "linear",
+            ease: "easeInOut",
           }}
         />
       </div>
@@ -148,7 +146,7 @@ export function Projects({ projects }: Props) {
               variant="outline"
               size="icon"
               onClick={prevProject}
-              className="h-12 w-12 rounded-full backdrop-blur-md bg-background/80 border-border/50 hover:bg-background/90 hover:scale-110 transition-all duration-300"
+              className="h-12 w-12 rounded-full backdrop-blur-md bg-background/80 border-border/50 hover:bg-background/90 hover:scale-105 transition-all duration-200"
             >
               <FiChevronLeft className="h-5 w-5" />
             </Button>
@@ -159,7 +157,7 @@ export function Projects({ projects }: Props) {
               variant="outline"
               size="icon"
               onClick={nextProject}
-              className="h-12 w-12 rounded-full backdrop-blur-md bg-background/80 border-border/50 hover:bg-background/90 hover:scale-110 transition-all duration-300"
+              className="h-12 w-12 rounded-full backdrop-blur-md bg-background/80 border-border/50 hover:bg-background/90 hover:scale-105 transition-all duration-200"
             >
               <FiChevronRight className="h-5 w-5" />
             </Button>
@@ -167,7 +165,11 @@ export function Projects({ projects }: Props) {
 
           {/* Project Display */}
           <div className="relative md:h-[70vh] min-h-[600px] overflow-hidden rounded-3xl">
-            <AnimatePresence initial={false} custom={direction} mode="wait">
+            <AnimatePresence
+              initial={false}
+              custom={direction}
+              mode="popLayout"
+            >
               <motion.div
                 key={currentProject}
                 custom={direction}
@@ -176,8 +178,13 @@ export function Projects({ projects }: Props) {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 },
+                  x: {
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 30,
+                    duration: 0.3,
+                  },
+                  opacity: { duration: 0.15 },
                 }}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
@@ -216,7 +223,7 @@ export function Projects({ projects }: Props) {
                     layoutId="activeIndicator"
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 35 }}
                   />
                 )}
               </button>
