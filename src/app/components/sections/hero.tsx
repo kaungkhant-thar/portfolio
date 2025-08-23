@@ -74,7 +74,7 @@ export function Hero() {
 
             <ScrollReveal delay={0.3}>
               <h2 className="mt-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold bg-gradient-to-r from-foreground via-primary to-secondary bg-clip-text text-transparent leading-tight">
-                Full Stack Engineer & Cloud Architect
+                Full Stack Engineer
               </h2>
             </ScrollReveal>
 
@@ -112,7 +112,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="absolute bottom-16 left-1/2 -translate-x-1/2"
+            className="absolute bottom-10 left-1/2 -translate-x-1/2"
           >
             <motion.div
               animate={{ y: [0, -10, 0] }}

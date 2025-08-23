@@ -139,7 +139,7 @@ export function Projects({ projects }: Props) {
         </div>
 
         {/* Project Carousel */}
-        <div className="relative max-w-7xl mx-auto">
+        <div className="relative max-w-8xl mx-auto">
           {/* Navigation Buttons */}
           <div className="absolute hidden md:block left-4 top-1/2 -translate-y-1/2 z-20">
             <Button
