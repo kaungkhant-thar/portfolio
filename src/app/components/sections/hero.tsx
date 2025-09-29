@@ -125,50 +125,6 @@ export function Hero() {
               </div>
             </motion.div>
           </motion.div>
-
-          {/* Enhanced social icons with better styling */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.3 }}
-            className="fixed left-8 z-20 top-1/2 hidden -translate-y-1/2 flex-col gap-4 md:flex"
-          >
-            {[
-              { icon: BsGithub, url: "https://github.com/kaungkhant-thar" },
-              {
-                icon: BsLinkedin,
-                url: "https://www.linkedin.com/in/kaung-khant-thar-b978ab1a1/",
-              },
-            ].map((item, index) => {
-              const isMail = item.url.startsWith("mailto:");
-              return (
-                <motion.a
-                  whileHover={{
-                    scale: 1.2,
-                    rotate: 5,
-                    backgroundColor: "hsl(var(--primary))",
-                    color: "hsl(var(--primary-foreground))",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 15,
-                  }}
-                  key={index}
-                  href={item.url}
-                  {...(!isMail && {
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                  })}
-                  className="text-muted-foreground transition-all duration-300 hover:text-foreground p-4 rounded-xl border border-border/50 backdrop-blur-lg bg-background/40 shadow-lg hover:shadow-xl"
-                >
-                  <item.icon className="h-6 w-6" />
-                </motion.a>
-              );
-            })}
-          </motion.div>
         </div>
       </div>
 

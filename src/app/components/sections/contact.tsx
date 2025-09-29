@@ -14,7 +14,7 @@ export function Contact() {
   const { ref } = useSectionInView("contact", 0.5);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hoveredContact, setHoveredContact] = useState<number | null>(null);
-  
+
   const {
     register,
     handleSubmit,
@@ -74,28 +74,27 @@ export function Contact() {
   const socialLinks = [
     {
       icon: <BsGithub className="h-5 w-5" />,
-      href: "https://github.com/kaungkhantthar",
+      href: "https://github.com/kaungkhant-thar",
       label: "GitHub",
     },
     {
       icon: <BsLinkedin className="h-5 w-5" />,
-      href: "https://linkedin.com/in/kaungkhantthar",
+      href: "https://www.linkedin.com/in/kaung-khant-thar-b978ab1a1/",
       label: "LinkedIn",
-    },
-    {
-      icon: <BsTwitter className="h-5 w-5" />,
-      href: "https://twitter.com/kaungkhantthar",
-      label: "Twitter",
     },
   ];
 
   return (
-    <section ref={ref} id="contact" className="scroll-mt-28 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
+    <section
+      ref={ref}
+      id="contact"
+      className="scroll-mt-28 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden"
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             x: [0, 50, 0],
             y: [0, -30, 0],
           }}
@@ -103,7 +102,7 @@ export function Contact() {
         />
         <motion.div
           className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-secondary/10 to-transparent rounded-full blur-3xl"
-          animate={{ 
+          animate={{
             x: [0, -30, 0],
             y: [0, 20, 0],
           }}
@@ -122,7 +121,8 @@ export function Contact() {
             Get In Touch
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-            Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
+            Ready to bring your ideas to life? Let's discuss your next project
+            and create something amazing together.
           </p>
           <motion.div
             className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-primary to-secondary"
@@ -143,8 +143,9 @@ export function Contact() {
             <div className="space-y-6">
               <h3 className="text-2xl font-bold">Let's Connect</h3>
               <p className="text-muted-foreground leading-relaxed">
-                I'm always excited to work on new projects and collaborate with passionate people. 
-                Whether you have a project in mind or just want to chat about technology, feel free to reach out!
+                I'm always excited to work on new projects and collaborate with
+                passionate people. Whether you have a project in mind or just
+                want to chat about technology, feel free to reach out!
               </p>
             </div>
 
@@ -165,11 +166,13 @@ export function Contact() {
                       href={contact.href}
                       className="flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg"
                     >
-                      <div className={`
+                      <div
+                        className={`
                         p-3 rounded-xl bg-gradient-to-br ${contact.gradient} text-white
                         transition-transform duration-300
-                        ${hoveredContact === index ? 'scale-110 rotate-3' : ''}
-                      `}>
+                        ${hoveredContact === index ? "scale-110 rotate-3" : ""}
+                      `}
+                      >
                         {contact.icon}
                       </div>
                       <div>
@@ -181,15 +184,19 @@ export function Contact() {
                     </a>
                   ) : (
                     <div className="flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50">
-                      <div className={`
+                      <div
+                        className={`
                         p-3 rounded-xl bg-gradient-to-br ${contact.gradient} text-white
                         transition-transform duration-300
-                        ${hoveredContact === index ? 'scale-110 rotate-3' : ''}
-                      `}>
+                        ${hoveredContact === index ? "scale-110 rotate-3" : ""}
+                      `}
+                      >
                         {contact.icon}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground">{contact.title}</h4>
+                        <h4 className="font-semibold text-foreground">
+                          {contact.title}
+                        </h4>
                         <p className="text-muted-foreground">{contact.value}</p>
                       </div>
                     </div>
@@ -233,7 +240,8 @@ export function Contact() {
               <div className="mb-8">
                 <h3 className="text-2xl font-bold mb-2">Send me a message</h3>
                 <p className="text-muted-foreground">
-                  I'll get back to you within 24 hours. Let's build something amazing together!
+                  I'll get back to you within 24 hours. Let's build something
+                  amazing together!
                 </p>
               </div>
 
