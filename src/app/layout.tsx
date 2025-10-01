@@ -13,7 +13,7 @@ import { ThemeProvider } from "../components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kaung Khant Thar | Modern Developer Portfolio",
+  title: "Kaung Khant Thar | Frontend & Full Stack Developer",
   description: "Showcase of my work and skills",
 };
 
